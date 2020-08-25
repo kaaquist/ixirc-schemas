@@ -1,5 +1,3 @@
-import sbtassembly.AssemblyKeys._
-
 name := "ixirc-schemas"
 
 organization := "com.funny"
@@ -14,9 +12,12 @@ PB.targets in Compile := Seq(
 
 crossScalaVersions := Seq("2.13.3", "2.12.12")
 
-publishTo := Some(Resolver.file("local-ivy", file("$HOME/.ivy2/local/")))
-publishTo := Some(MavenCache("local-maven", file("$HOME/.m2/repository/")))
+publishConfiguration := publishConfiguration.value.withOverwrite(true)
+publishLocalConfiguration := publishLocalConfiguration.value.withOverwrite(true)
 
 libraryDependencies ++= { Seq(
   "com.thesamet.scalapb"     %% "scalapb-runtime"     % scalapb.compiler.Version.scalapbVersion % "protobuf",
 )}
+
+githubOwner := "kaaquist"
+githubRepository := "ixirc-schemas"
