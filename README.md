@@ -31,4 +31,9 @@ credentials +=
     "USERNAME",
     "TOKEN")
 ```
+You also need to add an env variable to your `.profile` file or its like.
+```text
+# Github settings for github packages
+export GITHUB_TOKEN="<token>"
+```
 **Be aware**, that the token you use needs the right permissions. E.g. Github Packages admin rights.
