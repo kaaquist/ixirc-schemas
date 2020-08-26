@@ -37,3 +37,12 @@ You also need to add an env variable to your `.profile` file or its like.
 export GITHUB_TOKEN="<token>"
 ```
 **Be aware**, that the token you use needs the right permissions. E.g. Github Packages admin rights.
+
+#### Linux Gotchas Intellij
+For the project to work in Intellij you will need to make sure, that the `GITHUB_TOKEN` can be read as a local env variable.  
+Else you will experience errors in the project while loading the Github-package plugin. One of doing this is to follow these here [instructions](https://youtrack.jetbrains.com/issue/IDEABKL-7589).  
+this here I used and it worked. 
+```bash 
+> $ vim ~/.local/share/applications/jetbrains-idea.desktop 
+``` 
+add the following `/bin/bash -l -i -c` to this here line `Exec="<your path to idea>/idea-IU-201.7223.91/bin/idea.sh" %f`.
